@@ -164,7 +164,12 @@ espacio=[ \t \r]+
 {L}({L}|{D})* {lexemas=yytext(); return Identificador;}
 
 /* Numero */
-("(-"{D}+")")|{D}+ {lexemas=yytext(); return Numero;}
+{D}+ {lexemas=yytext(); return Numero;}
+"-"{D}+ {lexemas=yytext(); return Numero;}
+{D}+"."{D}+ {lexemas=yytext(); return Numero;}
+-{D}+"."{D}+ {lexemas=yytext(); return Numero;}
+("(-"{D}+")") {lexemas=yytext(); return Numero;}
+("(+"{D}+")") {lexemas=yytext(); return Numero;}
 
 /* Error de analisis */
  . {return ERROR;}
