@@ -68,10 +68,10 @@ espacio=[ \t \r]+
 ( "#" ) {lexemas=yytext(); return Almohadilla;}
 
 /* Include */
-( include ) {lexemas=yytext(); return Include;}
+( #include ) {lexemas=yytext(); return Include;}
 
 /* Define */
-( define ) {lexemas=yytext(); return Define;}
+( #define ) {lexemas=yytext(); return Define;}
 
 /* Break */
 ( break ) {lexemas=yytext(); return Break;}
